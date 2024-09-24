@@ -364,7 +364,7 @@ in
                 if ${boolToString cfg.addGcRoot}; then
                   nix-store --add-root "''${GIT_WC}/.pre-commit-config.yaml" --indirect --realise ${configFile}
                 else
-                  ln -fs ${configFile} "''${GIT_WC}/.pre-commit-config.yaml"
+                  sudo ln -fs ${configFile} "''${GIT_WC}/.pre-commit-config.yaml"
                 fi
                 # Remove any previously installed hooks (since pre-commit itself has no convergent design)
                 hooks="${concatStringsSep " " (remove "manual" supportedHooksLib.supportedHooks )}"
