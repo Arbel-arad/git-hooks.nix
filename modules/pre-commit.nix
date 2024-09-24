@@ -352,7 +352,7 @@ in
             if ! readlink "''${GIT_WC}/.pre-commit-config.yaml" >/dev/null \
               || [[ $(readlink "''${GIT_WC}/.pre-commit-config.yaml") != ${configFile} ]]; then
               echo 1>&2 "git-hooks.nix: updating $PWD repo"
-              [ -L .pre-commit-config.yaml ] && unlink .pre-commit-config.yaml
+              [ -L .pre-commit-config.yaml ] && sudo unlink .pre-commit-config.yaml
 
               if [ -e "''${GIT_WC}/.pre-commit-config.yaml" ]; then
                 echo 1>&2 "git-hooks.nix: WARNING: Refusing to install because of pre-existing .pre-commit-config.yaml"
